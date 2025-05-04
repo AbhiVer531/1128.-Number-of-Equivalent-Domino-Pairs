@@ -1,0 +1,9 @@
+class Solution:
+    def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
+        count = 0
+        seen = defaultdict(int)
+        for a, b in dominoes:
+            key = tuple(sorted((a, b))) 
+            count += seen[key] 
+            seen[key] += 1 
+        return count
